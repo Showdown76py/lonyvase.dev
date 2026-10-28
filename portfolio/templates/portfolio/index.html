@@ -1,0 +1,188 @@
+{% extends "portfolio/base.html" %}
+{% load static i18n %}
+{% block body %}
+<div class="shell">
+<canvas class="ambient" aria-hidden="true"></canvas>
+<div class="page">
+
+<header class="topbar">
+    <a href="#top" class="wordmark">lonyvase<span class="accent">.dev</span></a>
+    <nav class="nav" aria-label="{% translate "Main" %}">
+        <a href="#work">{% translate "Projects" %}</a>
+        <a href="#experience">{% translate "Experience" %}</a>
+        <a href="#contact">{% translate "Contact" %}</a>
+        <div class="nav-tools">
+            <a class="icon-btn lang-btn" href="{{ other_lang_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}"
+               aria-label="{% if other_lang == 'fr' %}Passer en français{% else %}Switch to English{% endif %}">{{ other_lang|upper }}</a>
+            <button type="button" class="icon-btn theme-btn" aria-label="{% translate "Toggle theme" %}">
+                <svg class="i-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="i-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<main>
+<section id="top" class="hero" aria-labelledby="hero-h">
+    <div class="hero-text">
+        <h1 id="hero-h" class="display">Lony Vase</h1>
+        <p class="meta">
+            <span>Rennes, France</span><span class="dot" aria-hidden="true">·</span>
+            <span>INSA Rennes</span><span class="dot" aria-hidden="true">·</span>
+            <span class="meta-strong">{% translate "Open to internships" %}</span>
+        </p>
+        <p class="lead">{% blocktranslate trimmed %}Computer science engineering student. I build <strong>infrastructure</strong> and tooling in <strong>Python</strong>, with a focus on <strong>security</strong> and <strong>AI</strong>.{% endblocktranslate %}</p>
+        <div class="actions">
+            <a href="#work" class="btn btn-primary">{% translate "See my projects" %} <span aria-hidden="true">→</span></a>
+            <a href="#contact" class="btn btn-ghost">{% translate "Get in touch" %}</a>
+        </div>
+        <div class="socials">
+            <a href="{{ github }}" class="social" aria-label="GitHub" rel="me noopener" target="_blank">
+                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+            </a>
+            <a href="mailto:{{ email }}" class="social" aria-label="{% translate "Email" %}">
+                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </a>
+        </div>
+    </div>
+    <figure class="hero-photo">
+        <img src="{% static 'portfolio/img/avatar.jpg' %}" alt="{% translate "Profile picture" %}" width="640" height="640">
+    </figure>
+</section>
+
+<section id="work" class="section" aria-labelledby="work-h">
+    <div class="section-head">
+        <div>
+            <h2 id="work-h" class="display-2">{% translate "Projects" %}</h2>
+            <p class="intro">{% translate "Here's what I've been working on." %}</p>
+        </div>
+        <a href="{{ github }}" target="_blank" rel="noopener">{% translate "All projects on GitHub" %} →</a>
+    </div>
+    <div class="cards">
+        <article class="card">
+            <div class="card-head">
+                <div class="thumb"><img src="{% static 'portfolio/img/beaconmcp.webp' %}" alt="" width="64" height="64"></div>
+                <div>
+                    <h3>BeaconMCP</h3>
+                    <p class="tags">Python, MCP, Proxmox</p>
+                </div>
+            </div>
+            <p class="card-body">{% translate "An MCP server that lets an AI assistant manage Proxmox, SSH hosts and Docker. I use it every day to run my homelab." %}</p>
+            <a href="https://github.com/Showdown76py/BeaconMCP" target="_blank" rel="noopener">{% translate "View GitHub Project" %} →</a>
+        </article>
+        <article class="card">
+            <div class="card-head">
+                <div class="thumb"><img src="{% static 'portfolio/img/hush.webp' %}" alt="" width="64" height="64"></div>
+                <div>
+                    <h3>Hush</h3>
+                    <p class="tags">macOS, audio</p>
+                </div>
+            </div>
+            <p class="card-body">{% translate "A menu bar app that runs Apple's echo cancellation on the mic, so calls stay clean with speakers on." %}</p>
+            <a href="https://github.com/Showdown76py/Hush" target="_blank" rel="noopener">{% translate "View GitHub Project" %} →</a>
+        </article>
+        <article class="card">
+            <div class="card-head">
+                <div class="thumb thumb-icon" aria-hidden="true">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="8.5" y="14" width="7" height="7" rx="1.5"/><path d="M6.5 10v2h11v-2M12 12v2"/></svg>
+                </div>
+                <div>
+                    <h3>Homelab</h3>
+                    <p class="tags">Proxmox, Linux, {% translate "networking" %}</p>
+                </div>
+            </div>
+            <p class="card-body">{% translate "Two Proxmox nodes running game panels, bots, VPN routing and self-hosted services, all behind tunnels." %}</p>
+            <a href="https://github.com/Showdown76py/lonyvase.dev" target="_blank" rel="noopener">{% translate "This site runs on it" %} →</a>
+        </article>
+    </div>
+</section>
+
+<section class="section section-gap" aria-labelledby="focus-h">
+    <div class="rule-head">
+        <h2 id="focus-h">{% translate "What I work on" %}</h2>
+        <div class="rule" aria-hidden="true"></div>
+    </div>
+    <table class="focus">
+        <tbody>
+        <tr>
+            <th scope="row">{% translate "Security" %}</th>
+            <td class="muted">{% translate "CTF challenges and reverse engineering, from binaries to WebAssembly modules hooked live in the browser." %}</td>
+            <td class="strong">{% translate "Reverse engineering, WebAssembly" %}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% translate "AI tooling" %}</th>
+            <td class="muted">{% translate "MCP servers that give language models safe access to real infrastructure, and LLM-backed web apps." %}</td>
+            <td class="strong">MCP, LLM APIs, Flask</td>
+        </tr>
+        <tr>
+            <th scope="row">{% translate "Infrastructure" %}</th>
+            <td class="muted">{% translate "A two-node Proxmox cluster at home: containers, VMs, GPU passthrough, tunnels and the debugging that comes with them." %}</td>
+            <td class="strong">Linux, Docker, Proxmox, {% translate "networking" %}</td>
+        </tr>
+        <tr>
+            <th scope="row">{% translate "Every day" %}</th>
+            <td class="muted">{% translate "French (native) and English (C1)." %}</td>
+            <td class="strong">Python, Git</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="experience" class="section section-gap" aria-labelledby="exp-h">
+    <div class="rule-head">
+        <h2 id="exp-h">{% translate "Education and experience" %}</h2>
+        <div class="rule" aria-hidden="true"></div>
+    </div>
+    <ol class="timeline">
+        <li class="card entry">
+            <div class="when">
+                <span class="when-date">{% translate "2026 to 2031" %}</span>
+                <span class="when-place">Rennes, France</span>
+            </div>
+            <div class="what">
+                <div class="stack">
+                    <h3>INSA Rennes</h3>
+                    <p class="strong">{% translate "Engineering degree in computer science" %}</p>
+                    <p class="muted">{% translate "Five-year programme: two years of core engineering sciences, then the computer science (INFO) specialty." %}</p>
+                </div>
+                <div class="sub">
+                    <div class="sub-head">
+                        <h4>{% translate "System and network administrator, InsaLan" %}</h4>
+                        <span class="mono muted">{% translate "Since 2026" %}</span>
+                    </div>
+                    <p class="muted">{% translate "Student association behind the INSA Rennes LAN party. I run the network side: internet access for every player and a Lancache game cache." %}</p>
+                </div>
+            </div>
+        </li>
+        <li class="card entry">
+            <div class="when">
+                <span class="when-date">2026</span>
+                <span class="when-place">Le Havre, France</span>
+            </div>
+            <div class="what stack">
+                <h3>Lycée Jules Siegfried</h3>
+                <p class="strong">{% translate "Baccalauréat général" %}</p>
+                <p class="muted">{% translate "Specialties in computer science (NSI) and mathematics." %}</p>
+            </div>
+        </li>
+    </ol>
+</section>
+
+<section id="contact" class="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h" class="display-2">{% translate "Let's talk" %}<span class="accent">.</span></h2>
+    <p class="intro">{% translate "Internships, projects or a question about something on this page. I usually reply within a day or two." %}</p>
+    <div class="actions actions-center">
+        <a href="mailto:{{ email }}" class="btn btn-primary">{{ email }} <span aria-hidden="true">→</span></a>
+        <a href="{{ github }}" class="btn btn-ghost" target="_blank" rel="noopener">GitHub <span aria-hidden="true">→</span></a>
+    </div>
+</section>
+</main>
+
+<footer class="footer">
+    <span>© 2026 Lony Vase</span>
+    <span>Rennes, France (<time class="clock">--:--</time> Europe/Paris)</span>
+</footer>
+
+</div>
+</div>
+{% endblock %}

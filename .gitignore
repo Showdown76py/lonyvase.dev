@@ -1,0 +1,9 @@
+.env
+.venv/
+__pycache__/
+staticfiles/
+.secret_key
+.local/
+.cache/
+.DS_Store
+.claude/

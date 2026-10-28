@@ -1,0 +1,249 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-28 04:29+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: lonyvase/settings.py:62
+msgid "English"
+msgstr "Anglais"
+
+#: lonyvase/settings.py:62
+msgid "French"
+msgstr "Français"
+
+#: portfolio/templates/portfolio/base.html:7
+#: portfolio/templates/portfolio/base.html:14
+msgid ""
+"Computer science engineering student at INSA Rennes. Infrastructure and "
+"tooling in Python, with a focus on security and AI."
+msgstr ""
+"Élève ingénieur en informatique à l'INSA Rennes. Infrastructure et outils en"
+" Python, surtout autour de la sécurité et de l'IA."
+
+#: portfolio/templates/portfolio/index.html:10
+msgid "Main"
+msgstr "Principal"
+
+#: portfolio/templates/portfolio/index.html:11
+#: portfolio/templates/portfolio/index.html:56
+msgid "Projects"
+msgstr "Projets"
+
+#: portfolio/templates/portfolio/index.html:12
+msgid "Experience"
+msgstr "Parcours"
+
+#: portfolio/templates/portfolio/index.html:13
+msgid "Contact"
+msgstr "Contact"
+
+#: portfolio/templates/portfolio/index.html:17
+msgid "Toggle theme"
+msgstr "Changer de thème"
+
+#: portfolio/templates/portfolio/index.html:32
+msgid "Open to internships"
+msgstr "Ouvert aux stages"
+
+#: portfolio/templates/portfolio/index.html:34
+msgid ""
+"Computer science engineering student. I build "
+"<strong>infrastructure</strong> and tooling in <strong>Python</strong>, with"
+" a focus on <strong>security</strong> and <strong>AI</strong>."
+msgstr ""
+"Élève ingénieur en informatique. Je construis de "
+"l'<strong>infrastructure</strong> et des outils en <strong>Python</strong>, "
+"surtout autour de la <strong>sécurité</strong> et de l'<strong>IA</strong>."
+
+#: portfolio/templates/portfolio/index.html:36
+msgid "See my projects"
+msgstr "Voir mes projets"
+
+#: portfolio/templates/portfolio/index.html:37
+msgid "Get in touch"
+msgstr "Me contacter"
+
+#: portfolio/templates/portfolio/index.html:43
+msgid "Email"
+msgstr "E-mail"
+
+#: portfolio/templates/portfolio/index.html:49
+msgid "Profile picture"
+msgstr "Photo de profil"
+
+#: portfolio/templates/portfolio/index.html:57
+msgid "Here's what I've been working on."
+msgstr "Ce sur quoi je travaille en ce moment."
+
+#: portfolio/templates/portfolio/index.html:59
+msgid "All projects on GitHub"
+msgstr "Tous les projets sur GitHub"
+
+#: portfolio/templates/portfolio/index.html:70
+msgid ""
+"An MCP server that lets an AI assistant manage Proxmox, SSH hosts and "
+"Docker. I use it every day to run my homelab."
+msgstr ""
+"Un serveur MCP qui permet à un assistant IA de gérer Proxmox, des hôtes SSH "
+"et Docker. Je m'en sers tous les jours pour gérer mon homelab."
+
+#: portfolio/templates/portfolio/index.html:71
+#: portfolio/templates/portfolio/index.html:82
+msgid "View GitHub Project"
+msgstr "Voir le projet sur GitHub"
+
+#: portfolio/templates/portfolio/index.html:81
+msgid ""
+"A menu bar app that runs Apple's echo cancellation on the mic, so calls stay"
+" clean with speakers on."
+msgstr ""
+"Une app de barre de menus qui applique l'annulation d'écho d'Apple au micro "
+": les appels restent propres même avec les haut-parleurs allumés."
+
+#: portfolio/templates/portfolio/index.html:91
+#: portfolio/templates/portfolio/index.html:120
+msgid "networking"
+msgstr "réseau"
+
+#: portfolio/templates/portfolio/index.html:94
+msgid ""
+"Two Proxmox nodes running game panels, bots, VPN routing and self-hosted "
+"services, all behind tunnels."
+msgstr ""
+"Deux nœuds Proxmox qui font tourner des panels de jeux, des bots, du routage"
+" VPN et des services auto-hébergés, le tout derrière des tunnels."
+
+#: portfolio/templates/portfolio/index.html:95
+msgid "This site runs on it"
+msgstr "Ce site tourne dessus"
+
+#: portfolio/templates/portfolio/index.html:102
+msgid "What I work on"
+msgstr "Ce que je fais"
+
+#: portfolio/templates/portfolio/index.html:108
+msgid "Security"
+msgstr "Sécurité"
+
+#: portfolio/templates/portfolio/index.html:109
+msgid ""
+"CTF challenges and reverse engineering, from binaries to WebAssembly modules"
+" hooked live in the browser."
+msgstr ""
+"Des CTF et de la rétro-ingénierie, des binaires aux modules WebAssembly "
+"instrumentés en direct dans le navigateur."
+
+#: portfolio/templates/portfolio/index.html:110
+msgid "Reverse engineering, WebAssembly"
+msgstr "Rétro-ingénierie, WebAssembly"
+
+#: portfolio/templates/portfolio/index.html:113
+msgid "AI tooling"
+msgstr "Outils IA"
+
+#: portfolio/templates/portfolio/index.html:114
+msgid ""
+"MCP servers that give language models safe access to real infrastructure, "
+"and LLM-backed web apps."
+msgstr ""
+"Des serveurs MCP qui donnent aux modèles de langage un accès sûr à de la "
+"vraie infrastructure, et des applis web basées sur des LLM."
+
+#: portfolio/templates/portfolio/index.html:118
+msgid "Infrastructure"
+msgstr "Infrastructure"
+
+#: portfolio/templates/portfolio/index.html:119
+msgid ""
+"A two-node Proxmox cluster at home: containers, VMs, GPU passthrough, "
+"tunnels and the debugging that comes with them."
+msgstr ""
+"Un cluster Proxmox de deux nœuds chez moi : conteneurs, VM, passthrough GPU,"
+" tunnels, et tout le débogage qui va avec."
+
+#: portfolio/templates/portfolio/index.html:123
+msgid "Every day"
+msgstr "Au quotidien"
+
+#: portfolio/templates/portfolio/index.html:124
+msgid "French (native) and English (C1)."
+msgstr "Français (langue maternelle) et anglais (C1)."
+
+#: portfolio/templates/portfolio/index.html:133
+msgid "Education and experience"
+msgstr "Formation et expérience"
+
+#: portfolio/templates/portfolio/index.html:139
+msgid "2026 to 2031"
+msgstr "2026 à 2031"
+
+#: portfolio/templates/portfolio/index.html:145
+msgid "Engineering degree in computer science"
+msgstr "Diplôme d'ingénieur en informatique"
+
+#: portfolio/templates/portfolio/index.html:146
+msgid ""
+"Five-year programme: two years of core engineering sciences, then the "
+"computer science (INFO) specialty."
+msgstr ""
+"Cursus en cinq ans : deux années de sciences de l'ingénieur, puis la "
+"spécialité informatique (INFO)."
+
+#: portfolio/templates/portfolio/index.html:150
+msgid "System and network administrator, InsaLan"
+msgstr "Administrateur systèmes et réseaux, InsaLan"
+
+#: portfolio/templates/portfolio/index.html:151
+msgid "Since 2026"
+msgstr "Depuis 2026"
+
+#: portfolio/templates/portfolio/index.html:153
+msgid ""
+"Student association behind the INSA Rennes LAN party. I run the network "
+"side: internet access for every player and a Lancache game cache."
+msgstr ""
+"L'association étudiante qui organise la LAN de l'INSA Rennes. Je m'occupe du"
+" réseau : l'accès internet de chaque joueur et un cache de jeux Lancache."
+
+#: portfolio/templates/portfolio/index.html:164
+msgid "Baccalauréat général"
+msgstr "Baccalauréat général"
+
+#: portfolio/templates/portfolio/index.html:165
+msgid "Specialties in computer science (NSI) and mathematics."
+msgstr "Spécialités informatique (NSI) et mathématiques."
+
+#: portfolio/templates/portfolio/index.html:172
+msgid "Let's talk"
+msgstr "Parlons-en"
+
+#: portfolio/templates/portfolio/index.html:173
+msgid ""
+"Internships, projects or a question about something on this page. I usually "
+"reply within a day or two."
+msgstr ""
+"Un stage, un projet ou une question sur cette page. Je réponds en général "
+"sous un ou deux jours."
+
+#: templates/404.html:8
+msgid "This page doesn't exist."
+msgstr "Cette page n'existe pas."
+
+#: templates/404.html:9
+msgid "Back to home"
+msgstr "Retour à l'accueil"

@@ -1,0 +1,25 @@
+{% load static i18n %}{% get_current_language as LANG %}<!doctype html>
+<html lang="{{ LANG }}" data-theme="{{ theme }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Lony Vase · lonyvase.dev{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% translate "Computer science engineering student at INSA Rennes. Infrastructure and tooling in Python, with a focus on security and AI." %}{% endblock %}">
+    <meta name="theme-color" content="#c9a2ff">
+    <link rel="icon" href="{% static 'portfolio/img/favicon.svg' %}" type="image/svg+xml">
+    <link rel="canonical" href="{{ canonical_base }}{{ request.path }}">
+    <link rel="alternate" hreflang="en" href="{{ canonical_base }}/">
+    <link rel="alternate" hreflang="fr" href="{{ canonical_base }}/fr/">
+    <meta property="og:title" content="Lony Vase · lonyvase.dev">
+    <meta property="og:description" content="{% translate "Computer science engineering student at INSA Rennes. Infrastructure and tooling in Python, with a focus on security and AI." %}">
+    <meta property="og:image" content="{{ canonical_base }}{% static 'portfolio/img/avatar.jpg' %}">
+    <meta property="og:url" content="{{ canonical_base }}{{ request.path }}">
+    <meta property="og:type" content="website">
+    <link rel="preload" href="{% static 'portfolio/fonts/Satoshi-Variable.ttf' %}" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="{% static 'portfolio/css/site.css' %}">
+    <script src="{% static 'portfolio/js/site.js' %}" defer></script>
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>
