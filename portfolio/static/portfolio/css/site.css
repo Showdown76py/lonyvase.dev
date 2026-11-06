@@ -18,6 +18,8 @@
     --on-accent: #14091f;
     --glow-1: rgba(140, 80, 255, 0.20);
     --shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    --ambient-base: 0.12;
+    --ambient-peak: 0.45;
 
     --font-body: 'Satoshi', system-ui, sans-serif;
     --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
@@ -49,6 +51,9 @@
     --on-accent: #ffffff;
     --glow-1: rgba(150, 90, 255, 0.16);
     --shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    /* dark glyphs on a pale bg read much louder than the reverse */
+    --ambient-base: 0.08;
+    --ambient-peak: 0.3;
 }
 
 * {
@@ -128,6 +133,8 @@ strong { color: var(--text); font-weight: 650; }
 
 .nav { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-card); }
 .nav > a { color: var(--muted); }
+/* bg-colored halo keeps text legible over the ambient canvas */
+.nav > a, .hero-text p { text-shadow: 0 0 6px var(--bg), 0 0 14px var(--bg), 0 0 22px var(--bg); }
 .nav > a:hover { color: var(--text); }
 .nav-tools { display: flex; align-items: center; gap: var(--space-inline); }
 
@@ -180,12 +187,13 @@ strong { color: var(--text); font-weight: 650; }
     margin-top: var(--space-inline);
     font-family: var(--font-mono);
     font-size: 0.9rem;
-    color: var(--muted);
+    color: var(--text);
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-meta);
 }
-.meta-strong { color: var(--text); font-weight: 600; }
+.meta .dot { color: var(--muted); }
+.meta-strong { color: var(--accent); font-weight: 650; }
 
 .lead {
     margin: var(--space-card) 0;

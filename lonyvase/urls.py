@@ -6,6 +6,7 @@ from portfolio import views
 urlpatterns = [
     path("robots.txt", views.robots, name="robots"),
     path("sitemap.xml", views.sitemap, name="sitemap"),
+    path("favicon.ico", views.favicon, name="favicon"),
 ]
 
 urlpatterns += i18n_patterns(

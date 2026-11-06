@@ -1,5 +1,18 @@
 {% extends "portfolio/base.html" %}
 {% load static i18n %}
+{% block jsonld %}
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [
+    {"@type": "WebSite", "@id": "{{ canonical_base }}/#website", "url": "{{ canonical_base }}/", "name": "Lony Vase", "alternateName": "lonyvase.dev", "inLanguage": "{{ LANG }}"},
+    {"@type": "Person", "@id": "{{ canonical_base }}/#me", "name": "Lony Vase", "url": "{{ canonical_base }}/",
+     "image": "{{ canonical_base }}{% static 'portfolio/img/avatar.jpg' %}",
+     "jobTitle": "{% translate "Computer science engineering student" %}",
+     "affiliation": {"@type": "CollegeOrUniversity", "name": "INSA Rennes"},
+     "address": {"@type": "PostalAddress", "addressLocality": "Rennes", "addressCountry": "FR"},
+     "sameAs": ["{{ github }}"]}
+]}
+</script>
+{% endblock %}
 {% block body %}
 <div class="shell">
 <canvas class="ambient" aria-hidden="true"></canvas>
@@ -27,8 +40,8 @@
     <div class="hero-text">
         <h1 id="hero-h" class="display">Lony Vase</h1>
         <p class="meta">
-            <span>Rennes, France</span><span class="dot" aria-hidden="true">·</span>
-            <span>INSA Rennes</span><span class="dot" aria-hidden="true">·</span>
+            <span>Rennes, France</span> <span class="dot" aria-hidden="true">·</span>
+            <span>INSA Rennes</span> <span class="dot" aria-hidden="true">·</span>
             <span class="meta-strong">{% translate "Open to internships" %}</span>
         </p>
         <p class="lead">{% blocktranslate trimmed %}Computer science engineering student. I build <strong>infrastructure</strong> and tooling in <strong>Python</strong>, with a focus on <strong>security</strong> and <strong>AI</strong>.{% endblocktranslate %}</p>
@@ -40,7 +53,7 @@
             <a href="{{ github }}" class="social" aria-label="GitHub" rel="me noopener" target="_blank">
                 <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
             </a>
-            <a href="mailto:{{ email }}" class="social" aria-label="{% translate "Email" %}">
+            <a href="#contact" data-m="{{ email_enc }}" class="social" aria-label="{% translate "Email" %}">
                 <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             </a>
         </div>
@@ -67,7 +80,7 @@
                     <p class="tags">Python, MCP, Proxmox</p>
                 </div>
             </div>
-            <p class="card-body">{% translate "An MCP server that lets an AI assistant manage Proxmox, SSH hosts and Docker. I use it every day to run my homelab." %}</p>
+            <p class="card-body">{% translate "An MCP server that lets an AI assistant manage Proxmox, SSH hosts and Docker to perform diagnostics or tedious tasks." %}</p>
             <a href="https://github.com/Showdown76py/BeaconMCP" target="_blank" rel="noopener">{% translate "View GitHub Project" %} →</a>
         </article>
         <article class="card">
@@ -78,7 +91,7 @@
                     <p class="tags">macOS, audio</p>
                 </div>
             </div>
-            <p class="card-body">{% translate "A menu bar app that runs Apple's echo cancellation on the mic, so calls stay clean with speakers on." %}</p>
+            <p class="card-body">{% translate "A menu bar app that uses Apple's built-in echo cancellation on Mac so it can be used in all other applications." %}</p>
             <a href="https://github.com/Showdown76py/Hush" target="_blank" rel="noopener">{% translate "View GitHub Project" %} →</a>
         </article>
         <article class="card">
@@ -91,7 +104,7 @@
                     <p class="tags">Proxmox, Linux, {% translate "networking" %}</p>
                 </div>
             </div>
-            <p class="card-body">{% translate "Two Proxmox nodes running game panels, bots, VPN routing and self-hosted services, all behind tunnels." %}</p>
+            <p class="card-body">{% translate "Two Proxmox nodes running various services (game panels, bots, VPN routing, self-hosted services)." %}</p>
             <a href="https://github.com/Showdown76py/lonyvase.dev" target="_blank" rel="noopener">{% translate "This site runs on it" %} →</a>
         </article>
     </div>
@@ -106,21 +119,21 @@
         <tbody>
         <tr>
             <th scope="row">{% translate "Security" %}</th>
-            <td class="muted">{% translate "CTF challenges and reverse engineering, from binaries to WebAssembly modules hooked live in the browser." %}</td>
+            <td class="muted">{% translate "CTF challenges, binary reverse engineering, and WebAssembly modules instrumented live in the browser." %}</td>
             <td class="strong">{% translate "Reverse engineering, WebAssembly" %}</td>
         </tr>
         <tr>
             <th scope="row">{% translate "AI tooling" %}</th>
-            <td class="muted">{% translate "MCP servers that give language models safe access to real infrastructure, and LLM-backed web apps." %}</td>
+            <td class="muted">{% translate "MCP servers that give language models safe access to real infrastructure while maintaining security." %}</td>
             <td class="strong">MCP, LLM APIs, Flask</td>
         </tr>
         <tr>
             <th scope="row">{% translate "Infrastructure" %}</th>
-            <td class="muted">{% translate "A two-node Proxmox cluster at home: containers, VMs, GPU passthrough, tunnels and the debugging that comes with them." %}</td>
+            <td class="muted">{% translate "A two-node Proxmox cluster managed by me and a friend: CTs, VMs, Docker containers, GPU passthrough, Cloudflare tunnels, reverse proxy..." %}</td>
             <td class="strong">Linux, Docker, Proxmox, {% translate "networking" %}</td>
         </tr>
         <tr>
-            <th scope="row">{% translate "Every day" %}</th>
+            <th scope="row">{% translate "Languages" %}</th>
             <td class="muted">{% translate "French (native) and English (C1)." %}</td>
             <td class="strong">Python, Git</td>
         </tr>
@@ -172,7 +185,7 @@
     <h2 id="contact-h" class="display-2">{% translate "Let's talk" %}<span class="accent">.</span></h2>
     <p class="intro">{% translate "Internships, projects or a question about something on this page. I usually reply within a day or two." %}</p>
     <div class="actions actions-center">
-        <a href="mailto:{{ email }}" class="btn btn-primary">{{ email }} <span aria-hidden="true">→</span></a>
+        <a href="#contact" data-m="{{ email_enc }}" class="btn btn-primary"><span class="mail-label">{% translate "Send me an email" %}</span> <span aria-hidden="true">→</span></a>
         <a href="{{ github }}" class="btn btn-ghost" target="_blank" rel="noopener">GitHub <span aria-hidden="true">→</span></a>
     </div>
 </section>

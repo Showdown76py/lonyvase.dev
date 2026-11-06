@@ -17,6 +17,20 @@
         btn.addEventListener('click', () => setTheme(root.dataset.theme === 'light' ? 'dark' : 'light'));
     });
 
+    // address is base64(reversed) server side, mailto only exists once a human points at the link
+    document.querySelectorAll('[data-m]').forEach(a => {
+        const addr = () => atob(a.dataset.m).split('').reverse().join('');
+        const arm = () => { a.href = 'mailto:' + addr(); };
+        ['pointerenter', 'focus', 'touchstart'].forEach(ev => a.addEventListener(ev, arm, { once: true, passive: true }));
+        const label = a.querySelector('.mail-label');
+        if (!label) return;
+        // headless harvesters rarely scroll down to the contact block
+        const io = new IntersectionObserver(es => {
+            if (es[0].isIntersecting) { label.textContent = addr(); io.disconnect(); }
+        });
+        io.observe(a);
+    });
+
     const clock = document.querySelector('.clock');
     if (clock) {
         const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Paris' });
@@ -53,13 +67,15 @@
     const glyphs = '01<>/{}[]#$%&*+=;:~';
     const mouse = { x: -9999, y: -9999, on: false };
     const R = 160;
-    let ctx, w, h, cw, cols, rowText = [], muted, accent, lens = 0, visible = true, last = 0;
+    let ctx, w, h, cw, cols, rowText = [], muted, accent, baseA, peakA, lens = 0, visible = true, last = 0;
     const lh = 22;
 
     function readColors() {
         const st = getComputedStyle(canvas);
         muted = st.getPropertyValue('--muted').trim() || '#a99bc4';
         accent = st.getPropertyValue('--accent').trim() || '#c9a2ff';
+        baseA = parseFloat(st.getPropertyValue('--ambient-base')) || 0.12;
+        peakA = parseFloat(st.getPropertyValue('--ambient-peak')) || 0.45;
     }
 
     function setup() {
@@ -103,7 +119,7 @@
         for (let i = 0; i < rowText.length; i++) {
             const y = i * lh;
             const fade = Math.max(0, 1 - y / h);
-            const base = 0.14 * fade * fade;
+            const base = baseA * fade * fade;
             if (base < 0.004) continue;
             const text = rowText[i];
             const L = text.length;
@@ -133,7 +149,7 @@
                         ch = glyphs.charAt(Math.floor(hash(j, i, tick + 7) * glyphs.length));
                     }
                     if (ch === ' ') continue;
-                    ctx.globalAlpha = base + (0.8 - base) * k;
+                    ctx.globalAlpha = base + (peakA - base) * k;
                     ctx.fillStyle = k > 0.08 ? accent : muted;
                 } else {
                     if (ch === ' ') continue;

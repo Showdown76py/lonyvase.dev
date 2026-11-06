@@ -1,6 +1,7 @@
 from django.conf import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.templatetags.static import static
 
 
 def home(request):
@@ -22,3 +23,8 @@ def sitemap(request):
         "</urlset>\n"
     )
     return HttpResponse(body, content_type="application/xml")
+
+
+def favicon(request):
+    # crawlers and old browsers ask for /favicon.ico regardless of <link>
+    return HttpResponseRedirect(static("portfolio/img/favicon.ico"))
