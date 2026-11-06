@@ -10,7 +10,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 def _secret_key():
     if key := os.environ.get("DJANGO_SECRET_KEY"):
         return key
-    # no db or sessions so the key only signs nothing critical, persist it so restarts stay stable
     path = BASE_DIR / ".secret_key"
     if not path.exists():
         path.write_text(secrets.token_urlsafe(50))

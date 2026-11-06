@@ -16,7 +16,6 @@ def site(request):
         "other_lang": other,
         "other_lang_url": translate_url(request.path, other),
         "canonical_base": f"https://{settings.CANONICAL_HOST}",
-        # address never appears in the html, js decodes it (see site.js)
         "email_enc": base64.b64encode(EMAIL[::-1].encode()).decode(),
         "github": "https://github.com/Showdown76py",
     }

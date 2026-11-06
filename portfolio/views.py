@@ -26,5 +26,4 @@ def sitemap(request):
 
 
 def favicon(request):
-    # crawlers and old browsers ask for /favicon.ico regardless of <link>
     return HttpResponseRedirect(static("portfolio/img/favicon.ico"))

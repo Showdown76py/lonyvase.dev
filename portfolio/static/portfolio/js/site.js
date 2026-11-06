@@ -7,7 +7,6 @@
         document.dispatchEvent(new Event('themechange'));
     }
 
-    // first visit: follow the system, server already rendered dark as default
     if (!/(?:^|;\s*)theme=/.test(document.cookie)) {
         const light = window.matchMedia('(prefers-color-scheme: light)').matches;
         if (light) setTheme('light');
@@ -17,14 +16,12 @@
         btn.addEventListener('click', () => setTheme(root.dataset.theme === 'light' ? 'dark' : 'light'));
     });
 
-    // address is base64(reversed) server side, mailto only exists once a human points at the link
     document.querySelectorAll('[data-m]').forEach(a => {
         const addr = () => atob(a.dataset.m).split('').reverse().join('');
         const arm = () => { a.href = 'mailto:' + addr(); };
         ['pointerenter', 'focus', 'touchstart'].forEach(ev => a.addEventListener(ev, arm, { once: true, passive: true }));
         const label = a.querySelector('.mail-label');
         if (!label) return;
-        // headless harvesters rarely scroll down to the contact block
         const io = new IntersectionObserver(es => {
             if (es[0].isIntersecting) { label.textContent = addr(); io.disconnect(); }
         });
@@ -123,7 +120,6 @@
             if (base < 0.004) continue;
             const text = rowText[i];
             const L = text.length;
-            // alternate scroll direction per row, speed 5..13 px/s
             const speed = (i % 2 ? 1 : -1) * (5 + ((i * 7) % 9));
             const span = L * cw;
             const px = (((t * speed) % span) + span) % span;
@@ -177,7 +173,6 @@
     } else {
         const loop = now => {
             requestAnimationFrame(loop);
-            // ~30fps is plenty for a background
             if (!visible || now - last < 33) return;
             last = now;
             draw(now);
